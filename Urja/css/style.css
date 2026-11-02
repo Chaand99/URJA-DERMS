@@ -1,0 +1,189 @@
+/* ==========================================================================
+   css/style.css
+   GLOBAL VARIABLES, TYPOGRAPHY & PREMIUM GLASSMORPHISM
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    
+    /* Premium Dark Theme Palette */
+    --bg-dark: #07090e; /* Deeper, richer background */
+    --bg-surface: #0f141e;
+    
+    /* Advanced Glassmorphism */
+    --glass-bg: rgba(15, 20, 30, 0.6);
+    --glass-border: rgba(255, 255, 255, 0.06);
+    --glass-highlight: rgba(255, 255, 255, 0.1);
+    
+    /* Vibrant Accents & Gradients */
+    --primary-blue: #2563eb;
+    --primary-blue-light: #3b82f6;
+    --primary-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    --primary-glow: rgba(59, 130, 246, 0.25);
+    
+    --accent-green: #10b981;
+    --accent-green-gradient: linear-gradient(135deg, #059669 0%, #10b981 100%);
+    --accent-green-glow: rgba(16, 185, 129, 0.2);
+    
+    --accent-orange: #f59e0b;
+    --accent-orange-gradient: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+    --accent-orange-glow: rgba(245, 158, 11, 0.2);
+    
+    /* Professional Typography Colors */
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #475569;
+    
+    /* Modern Spacing & Radii */
+    --sidebar-width: 280px;
+    --topbar-height: 76px;
+    --border-radius-sm: 10px;
+    --border-radius-md: 16px;
+    --border-radius-lg: 24px;
+    
+    /* Premium Shadows */
+    --shadow-soft: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 10px 30px -5px rgba(0, 0, 0, 0.6), 0 0 0 1px var(--glass-highlight);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+/* ==========================================================================
+   GLASSY ACCENT THEME VARIANTS (Retains 100% Glassmorphism)
+   ========================================================================== */
+
+/* 1. Electric Blue (Default) */
+body.theme-blue {
+    --primary-blue: #2563eb;
+    --primary-blue-light: #3b82f6;
+    --primary-gradient: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
+    --primary-glow: rgba(59, 130, 246, 0.25);
+}
+
+/* 2. Glassy Neon Pink */
+body.theme-pink {
+    --primary-blue: #db2777;
+    --primary-blue-light: #f472b6;
+    --primary-gradient: linear-gradient(135deg, #be185d 0%, #ec4899 100%);
+    --primary-glow: rgba(236, 72, 153, 0.3);
+}
+
+/* 3. Glassy Cyber Purple */
+body.theme-purple {
+    --primary-blue: #7c3aed;
+    --primary-blue-light: #a78bfa;
+    --primary-gradient: linear-gradient(135deg, #6d28d9 0%, #8b5cf6 100%);
+    --primary-glow: rgba(139, 92, 246, 0.3);
+}
+
+/* 4. Glassy Emerald Green */
+body.theme-green {
+    --primary-blue: #059669;
+    --primary-blue-light: #34d399;
+    --primary-gradient: linear-gradient(135deg, #047857 0%, #10b981 100%);
+    --primary-glow: rgba(16, 185, 129, 0.3);
+}
+
+/* 5. Glassy Solar Amber */
+body.theme-orange {
+    --primary-blue: #d97706;
+    --primary-blue-light: #fbbf24;
+    --primary-gradient: linear-gradient(135deg, #b45309 0%, #f59e0b 100%);
+    --primary-glow: rgba(245, 158, 11, 0.3);
+}
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    background-color: var(--bg-dark);
+    /* Subtle background mesh gradient effect */
+    background-image: 
+        radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.04) 0%, transparent 50%),
+        radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.04) 0%, transparent 50%);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* Premium Glassmorphism Card Utility */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle inner glow for premium feel */
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--glass-highlight);
+}
+
+.glass-card:hover::before {
+    opacity: 1;
+}
+
+/* Color Helpers */
+.green-text { color: var(--accent-green); }
+.blue-text { color: var(--primary-blue-light); }
+.orange-text { color: var(--accent-orange); }
+
+.green-icon { background: var(--accent-green-gradient); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 4px 6px var(--accent-green-glow)); }
+.blue-icon { background: var(--primary-gradient); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 4px 6px var(--primary-glow)); }
+.orange-icon { background: var(--accent-orange-gradient); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 4px 6px var(--accent-orange-glow)); }
+
+/* Layout Grid Container */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    transition: var(--transition-smooth);
+}
+/* Fix header text overlapping or touching card borders */
+.welcome-section.glass-card, 
+.panel-header {
+    padding: 1.75rem 2.5rem !important; /* Adds generous inner breathing room */
+    overflow: hidden !important;       /* Prevents text from bleeding outside the border */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.welcome-text h1 {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+}
+.panels-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem; /* 👈 Yeh ensure karega ki sabhi cards ke beech mein proper distance rahe */
+    margin-top: 1.5rem; /* 👈 Upar wale section se space banane ke liye */
+}

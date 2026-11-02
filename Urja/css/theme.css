@@ -1,0 +1,77 @@
+/* ==================================================
+   URJA DESIGN TOKENS
+================================================== */
+
+:root{
+
+/* Primary */
+
+--primary:#8B5CF6;
+--primary-light:#A78BFA;
+--primary-dark:#6D28D9;
+
+
+/* Accent */
+
+--success:#22C55E;
+--warning:#F59E0B;
+--danger:#EF4444;
+--info:#3B82F6;
+
+
+/* Background */
+
+--bg:#0F1117;
+
+--surface:#171B24;
+
+--surface-light:#202533;
+
+--surface-hover:#252C3A;
+
+
+/* Text */
+
+--text:#F8FAFC;
+
+--text-secondary:#CBD5E1;
+
+--text-muted:#94A3B8;
+
+
+/* Border */
+
+--border:rgba(255,255,255,.07);
+
+
+/* Radius */
+
+--radius-sm:10px;
+
+--radius:18px;
+
+--radius-lg:24px;
+
+
+/* Shadow */
+
+--shadow:
+
+0 10px 35px rgba(0,0,0,.28);
+
+
+/* Transition */
+
+--transition:.28s ease;
+
+
+/* Sidebar */
+
+--sidebar-width:270px;
+
+
+/* Header */
+
+--header-height:78px;
+
+}

@@ -1,0 +1,237 @@
+/* ==========================================================================
+   css/login.css
+   PREMIUM LOGIN PAGE STYLES & ANIMATIONS
+   ========================================================================== */
+
+/* Full Screen Wrapper */
+.login-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    padding: 20px;
+}
+
+/* Ambient Animated Background */
+.animated-bg {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    overflow: hidden;
+    z-index: 1;
+    background-color: var(--bg-dark);
+}
+
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.5;
+    animation: floatOrb 12s infinite ease-in-out alternate;
+}
+
+.orb-1 {
+    width: 400px; height: 400px;
+    background: rgba(37, 99, 235, 0.4);
+    top: -10%; left: -10%;
+    animation-delay: 0s;
+}
+
+.orb-2 {
+    width: 500px; height: 500px;
+    background: rgba(139, 92, 246, 0.3);
+    bottom: -20%; right: -10%;
+    animation-delay: -4s;
+}
+
+.orb-3 {
+    width: 300px; height: 300px;
+    background: rgba(16, 185, 129, 0.2);
+    top: 40%; left: 60%;
+    animation-delay: -8s;
+}
+
+@keyframes floatOrb {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(50px, 50px) scale(1.2); }
+}
+
+/* Login Card Styling */
+.login-card {
+    width: 100%;
+    max-width: 440px;
+    padding: 3rem 2.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.login-header .logo {
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.login-header .logo-icon {
+    font-size: 2rem;
+}
+
+.login-header .logo-text {
+    font-size: 1.8rem;
+}
+
+.login-header .subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Form Inputs */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    transition: var(--transition-smooth);
+}
+
+.form-control.with-icon {
+    padding-left: 2.8rem;
+    width: 100%;
+    height: 52px;
+}
+
+.input-wrapper:focus-within .input-icon {
+    color: var(--primary-blue-light);
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.toggle-password:hover {
+    color: var(--text-primary);
+}
+
+/* Checkbox & Links */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -0.5rem;
+}
+
+.forgot-password {
+    color: var(--primary-blue-light);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transition-smooth);
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    user-select: none;
+}
+
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    border-radius: 4px;
+    transition: var(--transition-smooth);
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: var(--primary-blue-light);
+    border-color: var(--primary-blue-light);
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Login Button Specific */
+.login-btn {
+    height: 52px;
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+/* Footer */
+.login-footer {
+    margin-top: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 1.5rem;
+}
+
+.login-footer p {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}

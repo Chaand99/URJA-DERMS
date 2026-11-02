@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urja | Smart Energy Management Dashboard</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fa-solid fa-bolt logo-icon"></i>
+                    <span class="logo-text">Ur<span style="color: var(--primary-blue);">ja</span></span>
+                </div>
+                <button class="collapse-btn" id="collapseBtn" aria-label="Toggle Sidebar">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <ul id="navLinks">
+                    <li class="active">
+                        <a href="#" data-route="dashboard">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-route="analytics">
+                            <i class="fa-solid fa-chart-line"></i>
+                            <span class="nav-text">Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-route="cortex">
+                            <i class="fa-solid fa-brain"></i>
+                            <span class="nav-text">Cortex AI</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-route="reports">
+                            <i class="fa-solid fa-file-invoice"></i>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-route="p2p">
+                            <i class="fa-solid fa-arrows-split-up-and-left"></i>
+                            <span class="nav-text">P2P Trading</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-route="settings">
+                            <i class="fa-solid fa-sliders"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="login.html" class="logout-btn">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span class="nav-text">Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content Wrapper -->
+        <main class="main-content" id="mainContent">
+            
+            <!-- Top Navbar -->
+            <header class="top-navbar">
+                <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Open Mobile Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                
+                <div class="navbar-brand-title">
+                    <span>Urja Supervisory Control Center</span>
+                </div>
+
+                <div class="navbar-actions">
+                    <!-- Google-style Interactive Node Switcher Avatar Button (Cleaned - No inline JS) -->
+                    <div class="google-node-switcher-container" style="position: relative; display: inline-block;">
+                        <button class="node-avatar-btn" id="nodeSwitcherTrigger" title="Switch Active Node" style="background: rgba(37, 99, 235, 0.15); border: 1px solid rgba(37, 99, 235, 0.3); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; position: relative;">
+                            <span class="avatar-text active-node-name" id="avatarText" style="color: var(--primary-blue-light); font-weight: 700; font-size: 0.85rem;">04</span>
+                            <span class="pulse-ring"></span>
+                        </button>
+
+                        <!-- Node Switcher Dropdown Menu -->
+                        <div class="node-dropdown-menu" id="nodeDropdownMenu" style="display: none; position: absolute; right: 0; top: 46px; background: #0f141e; border: 1px solid var(--glass-border); border-radius: 12px; width: 220px; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 1000; padding: 6px;">
+                            <div class="dropdown-header" style="padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+                                <span class="dropdown-title" style="font-size: 0.75rem; font-weight: 700; color: var(--text-primary); display: block;">Active Microgrid Node</span>
+                                <span class="node-sub" style="font-size: 0.7rem; color: var(--text-muted);">Select infrastructure target</span>
+                            </div>
+                            <div class="dropdown-items" style="display: flex; flex-direction: column; gap: 4px; padding-top: 6px;">
+                                <button class="node-option" data-value="node04A" style="display: flex; align-items: center; gap: 10px; width: 100%; background: transparent; border: none; padding: 8px 10px; border-radius: 8px; color: var(--text-primary); cursor: pointer; text-align: left;">
+                                    <i class="fa-solid fa-server" style="color: var(--primary-blue-light);"></i>
+                                    <div class="node-info">
+                                        <strong style="font-size: 0.8rem; display: block;">Node #04-A</strong>
+                                        <span style="font-size: 0.68rem; color: var(--text-muted);">Main Substation Hub</span>
+                                    </div>
+                                </button>
+                                <button class="node-option" data-value="node01" style="display: flex; align-items: center; gap: 10px; width: 100%; background: transparent; border: none; padding: 8px 10px; border-radius: 8px; color: var(--text-primary); cursor: pointer; text-align: left;">
+                                    <i class="fa-solid fa-solar-panel" style="color: var(--accent-green);"></i>
+                                    <div class="node-info">
+                                        <strong style="font-size: 0.8rem; display: block;">Node #01</strong>
+                                        <span style="font-size: 0.68rem; color: var(--text-muted);">Home 1 - Solar Array</span>
+                                    </div>
+                                </button>
+                                <button class="node-option" data-value="node02" style="display: flex; align-items: center; gap: 10px; width: 100%; background: transparent; border: none; padding: 8px 10px; border-radius: 8px; color: var(--text-primary); cursor: pointer; text-align: left;">
+                                    <i class="fa-solid fa-charging-station" style="color: var(--accent-orange);"></i>
+                                    <div class="node-info">
+                                        <strong style="font-size: 0.8rem; display: block;">Node #02</strong>
+                                        <span style="font-size: 0.68rem; color: var(--text-muted);">Home 2 / EV Hub</span>
+                                    </div>
+                                </button>
+                                <button class="node-option" data-value="node03" style="display: flex; align-items: center; gap: 10px; width: 100%; background: transparent; border: none; padding: 8px 10px; border-radius: 8px; color: var(--text-primary); cursor: pointer; text-align: left;">
+                                    <i class="fa-solid fa-battery-full" style="color: var(--primary-blue-light);"></i>
+                                    <div class="node-info">
+                                        <strong style="font-size: 0.8rem; display: block;">Node #03</strong>
+                                        <span style="font-size: 0.68rem; color: var(--text-muted);">BESS Storage Bank</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Admin Profile Avatar -->
+                    <div class="action-item profile" style="margin-left: 12px; display: inline-flex; align-items: center;">
+                        <img src="https://ui-avatars.com/api/?name=Energy+Admin&background=2563eb&color=fff" alt="Admin Avatar" style="width: 36px; height: 36px; border-radius: 50%;">
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dynamic SPA Content Area -->
+            <div id="content" style="width: 100%; box-sizing: border-box;">
+            </div>
+
+        </main>
+    </div>
+
+    <!-- External Libraries & Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="module" src="js/router.js"></script>
+</body>
+</html>

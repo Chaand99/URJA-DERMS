@@ -1,0 +1,121 @@
+<div class="dashboard-body p2p-page" style="overflow: visible !important;">
+
+    <div class="welcome-section glass-card" style="padding: 1.5rem 2.5rem; overflow: visible !important;">
+        <div class="welcome-text" style="overflow: visible !important;">
+            <h1 style="font-size: 1.6rem; padding-bottom: 4px; letter-spacing: -0.3px;">P2P Energy <span class="gradient-text">Trading Hub</span></h1>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Autonomous inter-node power routing & microgrid settlement between physical ESP microcontrollers.</p>
+        </div>
+        <div class="welcome-badge" style="background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(37, 99, 235, 0.3); padding: 0.4rem 1rem;">
+            <span class="pulse-dot"></span>
+            <span style="font-size: 0.8rem; font-weight: 600; color: var(--primary-blue-light);" class="active-node-name">Active Node: Node #04-A</span>
+        </div>
+    </div>
+
+    <div class="glass-card panel-card" style="padding: 1.25rem 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+        <span style="font-size: 0.9rem; font-weight: 600; color: var(--text-primary);">Active P2P Market Pairing:</span>
+        <div style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
+            <select id="p2pProducerSelect" style="background: #0f141e !important; color: #f8fafc !important; border: 1px solid var(--glass-border); padding: 8px 14px; border-radius: 8px; outline: none; cursor: pointer; color-scheme: dark;">
+                <option value="node01" style="background: #0f141e; color: #f8fafc;">Node #01 (Home 1 - Solar Array)</option>
+                <option value="node04A" style="background: #0f141e; color: #f8fafc;">Node #04-A (Main Substation Hub)</option>
+                <option value="node02" style="background: #0f141e; color: #f8fafc;">Node #02 (Home 2 / EV Hub)</option>
+                <option value="node03" style="background: #0f141e; color: #f8fafc;">Node #03 (BESS Storage Bank)</option>
+            </select>
+            <span style="color: var(--text-secondary); font-weight: bold; font-size: 1.1rem;">⇄</span>
+            <select id="p2pConsumerSelect" style="background: #0f141e !important; color: #f8fafc !important; border: 1px solid var(--glass-border); padding: 8px 14px; border-radius: 8px; outline: none; cursor: pointer; color-scheme: dark;">
+                <option value="node02" style="background: #0f141e; color: #f8fafc;">Node #02 (Home 2 / EV Hub)</option>
+                <option value="node01" style="background: #0f141e; color: #f8fafc;">Node #01 (Home 1 - Solar Array)</option>
+                <option value="node04A" style="background: #0f141e; color: #f8fafc;">Node #04-A (Main Substation Hub)</option>
+                <option value="node03" style="background: #0f141e; color: #f8fafc;">Node #03 (BESS Storage Bank)</option>
+            </select>
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+
+        <div class="glass-card" style="padding: 1.75rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <h3 style="font-size: 1.05rem; color: var(--text-primary);">Host Source (Producer)</h3>
+                <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-green); padding: 2px 8px; border-radius: 12px; font-size: 0.72rem;">Surplus 🟢</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;"><span style="color: var(--text-secondary);">Solar Generation:</span> <strong id="node1-solar" style="color: #f8fafc;">0.00 kW</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;"><span style="color: var(--text-secondary);">Local Building Load:</span> <strong id="node1-load" style="color: #f8fafc;">0.00 kW</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.75rem;">
+                    <span style="color: var(--text-secondary);">Net Balance:</span> <strong id="node1-net" class="green-text">+0.00 kW (Exporting)</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card" style="padding: 1.75rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <h3 style="font-size: 1.05rem; color: var(--text-primary);">Client Target (Consumer)</h3>
+                <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: var(--accent-orange); padding: 2px 8px; border-radius: 12px; font-size: 0.72rem;">Deficit 🔴</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;"><span style="color: var(--text-secondary);">Solar Generation:</span> <strong id="node2-solar" style="color: #f8fafc;">0.00 kW</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;"><span style="color: var(--text-secondary);">Local Building Load:</span> <strong id="node2-load" style="color: #f8fafc;">0.00 kW</strong></div>
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 0.75rem;">
+                    <span style="color: var(--text-secondary);">Net Balance:</span> <strong id="node2-net" style="color: var(--accent-orange);">-0.00 kW (Deficit)</strong>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="glass-card" style="padding: 2rem; border-left: 4px solid var(--primary-blue);">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;">
+            <div>
+                <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Microgrid Power Bank Routing</span>
+                <h3 style="font-size: 1.2rem; color: var(--text-primary); margin-top: 2px;">Autonomous Energy Dispatch Control</h3>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 4px;" id="p2pTransferStatus">Status: Standby / Ready to Dispatch</p>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap;">
+                <div style="text-align: right;">
+                    <span style="font-size: 0.72rem; color: var(--text-muted); display: block;">Active Transfer Rate</span>
+                    <strong style="font-size: 1.1rem; color: var(--accent-green);" id="p2p-transfer-rate">0.00 kW Active</strong>
+                </div>
+                <button id="startP2PTransferBtn" style="background: var(--primary-blue); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.25s ease; box-shadow: 0 4px 15px var(--primary-glow);">
+                    Ready to Transfer
+                </button>
+            </div>
+        </div>
+
+        <div style="margin-top: 1.75rem; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.25rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.82rem; margin-bottom: 0.5rem; color: var(--text-secondary);">
+                <span>Target Battery State of Charge (SoC):</span>
+                <strong id="targetBatteryLabel" style="color: #f8fafc;">88% (Standby)</strong>
+            </div>
+            <div style="width: 100%; height: 10px; background: rgba(255,255,255,0.05); border-radius: 5px; overflow: hidden; border: 1px solid var(--glass-border);">
+                <div id="targetBatteryProgress" style="width: 88%; height: 100%; background: linear-gradient(90deg, #2563eb, #10b981); transition: width 0.5s ease; border-radius: 5px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- P2P Settlement & Audit Ledger Table -->
+    <div class="glass-card panel-card" style="padding: 1.75rem; margin-top: 1.5rem;">
+        <div class="panel-header" style="margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1.05rem; color: var(--text-primary);"><i class="fa-solid fa-receipt blue-text" style="margin-right: 8px;"></i> P2P Microgrid Dispatch & Settlement Ledger</h3>
+            <span class="badge" style="background: rgba(37, 99, 235, 0.1); color: var(--primary-blue-light); border: 1px solid rgba(37, 99, 235, 0.3); padding: 4px 10px; border-radius: 8px; font-size: 0.75rem;">Realtime Ledger</span>
+        </div>
+
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+                <thead>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">
+                        <th style="padding: 10px 12px;">Timestamp</th>
+                        <th style="padding: 10px 12px;">Consumer Node</th>
+                        <th style="padding: 10px 12px;">Producer Node</th>
+                        <th style="padding: 10px 12px;">Power Transferred</th>
+                        <th style="padding: 10px 12px;">Settlement Rate</th>
+                        <th style="padding: 10px 12px;">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="p2pLedgerTableBody">
+                    <tr><td colspan="6" style="text-align:center; color:var(--text-muted); padding: 1.5rem;">Connecting to real-time settlement ledger...</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

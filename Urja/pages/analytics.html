@@ -1,0 +1,121 @@
+<div class="dashboard-body analytics-body" style="padding-bottom: 3.5rem;">
+    <div class="welcome-section glass-card" style="padding: 1.25rem 2rem; margin-bottom: 0.5rem;">
+        <div class="welcome-text">
+            <h1 style="font-size: 1.5rem; margin-bottom: 0.2rem;">Energy <span class="gradient-text">Analytics Hub</span></h1>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Deep-dive historical telemetry and real-time node performance audits.</p>
+        </div>
+        <div class="welcome-badge" style="background: rgba(37, 99, 235, 0.1); border: 1px solid rgba(37, 99, 235, 0.3); padding: 0.4rem 1rem;">
+            <i class="fa-solid fa-server" style="color: var(--primary-blue-light);"></i>
+            <span style="color: var(--primary-blue-light); font-weight: 600; font-size: 0.8rem;" class="active-node-name" id="analyticsNodeBadge"><span class="node-label">Active Node: Node #04-A</span></span>
+        </div>
+    </div>
+
+    <div class="stats-grid analytics-compact-grid" style="margin-bottom: 1.5rem;">
+        
+        <div class="stat-card glass-card compact-card">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper blue-glow" style="width: 34px; height: 34px; font-size: 0.9rem;"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+            </div>
+            <div class="stat-body">
+                <span class="stat-title" style="font-size: 0.75rem;">Estimated Bill</span>
+                <div class="stat-value" id="estimatedBill" style="font-size: 1.4rem;">₹0</div>
+            </div>
+        </div>
+
+        <div class="stat-card glass-card compact-card">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper orange-glow" style="width: 34px; height: 34px; font-size: 0.9rem;"><i class="fa-solid fa-arrow-trend-up"></i></div>
+            </div>
+            <div class="stat-body">
+                <span class="stat-title" style="font-size: 0.75rem;">Peak Demand</span>
+                <div class="stat-value" id="peakDemand" style="font-size: 1.4rem;">0 <span class="unit" style="font-size: 0.8rem;">kW</span></div>
+            </div>
+        </div>
+
+        <div class="stat-card glass-card compact-card">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper blue-glow" style="width: 34px; height: 34px; font-size: 0.9rem;"><i class="fa-solid fa-weight-scale"></i></div>
+            </div>
+            <div class="stat-body">
+                <span class="stat-title" style="font-size: 0.75rem;">Average Load</span>
+                <div class="stat-value" id="averageLoad" style="font-size: 1.4rem;">0 <span class="unit" style="font-size: 0.8rem;">kW</span></div>
+            </div>
+        </div>
+
+        <div class="stat-card glass-card compact-card">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper blue-glow" style="width: 34px; height: 34px; font-size: 0.9rem;"><i class="fa-solid fa-bolt"></i></div>
+            </div>
+            <div class="stat-body">
+                <span class="stat-title" style="font-size: 0.75rem;">Average Voltage</span>
+                <div class="stat-value" id="averageVoltage" style="font-size: 1.4rem;">0 <span class="unit" style="font-size: 0.8rem;">V</span></div>
+            </div>
+        </div>
+
+        <div class="stat-card glass-card compact-card">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper orange-glow" style="width: 34px; height: 34px; font-size: 0.9rem;"><i class="fa-solid fa-gauge-high"></i></div>
+            </div>
+            <div class="stat-body">
+                <span class="stat-title" style="font-size: 0.75rem;">Average Current</span>
+                <div class="stat-value" id="averageCurrent" style="font-size: 1.4rem;">0 <span class="unit" style="font-size: 0.8rem;">A</span></div>
+            </div>
+        </div>
+
+        <div class="stat-card glass-card compact-card">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper green-glow" style="width: 34px; height: 34px; font-size: 0.9rem;"><i class="fa-solid fa-wave-square"></i></div>
+            </div>
+            <div class="stat-body">
+                <span class="stat-title" style="font-size: 0.75rem;">Power Factor</span>
+                <div class="stat-value" id="averagePF" style="font-size: 1.4rem;">0</div>
+            </div>
+        </div>
+
+        <div class="stat-card glass-card compact-card">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper blue-glow" style="width: 34px; height: 34px; font-size: 0.9rem;"><i class="fa-solid fa-satellite-dish"></i></div>
+            </div>
+            <div class="stat-body">
+                <span class="stat-title" style="font-size: 0.75rem;">Grid Frequency</span>
+                <div class="stat-value" id="averageFrequency" style="font-size: 1.4rem;">0 <span class="unit" style="font-size: 0.8rem;">Hz</span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="analytics-charts-grid">
+        <div class="glass-card chart-card large-chart">
+            <div class="panel-header" style="margin-bottom: 1rem;">
+                <h3 style="font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-chart-line" style="color: var(--primary-blue-light);"></i> Power Consumption Trend (Historical)
+                </h3>
+            </div>
+            <div class="chart-container" style="position: relative; height: 260px; width: 100%;">
+                <canvas id="dailyConsumptionChart"></canvas>
+            </div>
+        </div>
+
+        <div class="glass-card chart-card">
+            <div class="panel-header" style="margin-bottom: 1rem;">
+                <h3 style="font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-bolt" style="color: var(--accent-green);"></i> Voltage Stability Trend
+                </h3>
+            </div>
+            <div class="chart-container" style="position: relative; height: 240px; width: 100%;">
+                <canvas id="weeklyTrendChart"></canvas>
+            </div>
+        </div>
+
+        <div class="glass-card chart-card">
+            <div class="panel-header" style="margin-bottom: 1rem;">
+                <h3 style="font-size: 0.95rem; display: flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-chart-pie" style="color: var(--accent-orange);"></i> Energy Source Distribution
+                </h3>
+            </div>
+            <div class="chart-container" style="position: relative; height: 240px; width: 100%;">
+                <canvas id="energyDistributionChart"></canvas>
+            </div>
+        </div>
+    </div>
+</div>

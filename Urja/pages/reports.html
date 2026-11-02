@@ -1,0 +1,120 @@
+<!-- pages/reports.html -->
+<div class="dashboard-body reports-body" style="overflow: visible !important; display: flex; flex-direction: column; gap: 1.75rem; padding-bottom: 3rem;">
+
+    <!-- 1. Modern Enterprise Header Section -->
+    <div class="welcome-section glass-card" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1.5rem; padding: 1.75rem 2.5rem; border-left: 4px solid var(--primary-blue);">
+
+        <!-- Left: Title, Subtitle & Single Synchronized Active Node ID -->
+        <div class="welcome-text" style="display: flex; flex-direction: column; gap: 0.5rem; max-width: 55%;">
+            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <h1 style="font-size: 1.75rem; font-weight: 800; color: var(--text-primary); margin: 0; letter-spacing: -0.5px;">
+                    Urja <span class="gradient-text">Report Center</span>
+                </h1>
+                <!-- Single Live Synchronized Node Badge -->
+                <span class="badge active-node-name" style="background: rgba(37, 99, 235, 0.12); color: var(--primary-blue-light); border: 1px solid rgba(37, 99, 235, 0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; display: inline-flex; align-items: center; gap: 6px;">
+                    <i class="fa-solid fa-server" style="font-size: 0.7rem;"></i> <span class="node-label">Node #04-A</span>
+                </span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">Telemetry audit logs, carbon offsets, and compliance exports.</p>
+        </div>
+
+        <!-- Right: Download Button on Top, Filter Dropdown Below -->
+        <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem; margin-left: auto;">
+            <!-- PDF Export Button (Top) -->
+            <button id="downloadPdfBtn" class="hover-lift" style="display: flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #fff; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 600; font-size: 0.88rem; cursor: pointer; box-shadow: 0 4px 15px rgba(37,99,235,0.35); transition: all 0.25s ease;">
+                <i class="fa-solid fa-file-pdf"></i>
+                <span id="pdfBtnText">Download PDF Report</span>
+            </button>
+
+            <!-- Quick Log Filter Pill (Bottom) -->
+            <div style="background: rgba(15, 20, 30, 0.6); border: 1px solid var(--glass-border); padding: 6px 14px; border-radius: 10px; display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-filter" style="font-size: 0.8rem; color: var(--text-muted);"></i>
+                <select id="reportQuickFilter" style="background: transparent; border: none; color: var(--text-primary); font-size: 0.82rem; outline: none; cursor: pointer; color-scheme: dark;">
+                    <option value="all" style="background: #0f141e;">All Audit Logs</option>
+                    <option value="critical" style="background: #0f141e;">Critical Events Only</option>
+                    <option value="power" style="background: #0f141e;">Power Summaries</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Report Filter Period Tabs -->
+    <div class="glass-card" style="display: flex; gap: 1rem; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 1.25rem 2rem;">
+        <div style="display: flex; gap: 0.75rem;" id="reportPeriodTabs">
+            <button class="live-pill report-tab active" data-period="weekly" style="cursor: pointer; background: rgba(37,99,235,0.2); border-color: var(--primary-blue);">Weekly Audit</button>
+            <button class="live-pill report-tab" data-period="monthly" style="cursor: pointer;">Monthly Summary</button>
+            <button class="live-pill report-tab" data-period="yearly" style="cursor: pointer;">Yearly Compliance</button>
+        </div>
+        <!-- Info indicator showing export uses universal selected node -->
+        <div style="font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-circle-info" style="color: var(--primary-blue-light);"></i>
+            Reports are auto-synced with active microgrid node.
+        </div>
+    </div>
+
+    <!-- 3. Dynamic Metrics Overview Grid -->
+    <div class="stats-grid">
+        <div class="stat-card glass-card hover-lift">
+            <div class="stat-top"><div class="stat-icon-wrapper blue-glow"><i class="fa-solid fa-bolt"></i></div></div>
+            <div class="stat-body">
+                <span class="stat-title" id="rep-label-cons">Total Consumption (Weekly)</span>
+                <div class="stat-value" id="report-consumption">0.0 <span class="unit">kWh</span></div>
+            </div>
+        </div>
+        <div class="stat-card glass-card hover-lift">
+            <div class="stat-top"><div class="stat-icon-wrapper green-glow"><i class="fa-solid fa-solar-panel"></i></div></div>
+            <div class="stat-body">
+                <span class="stat-title" id="rep-label-solar">Total Solar Generation</span>
+                <div class="stat-value" id="report-solar">0.0 <span class="unit">kWh</span></div>
+            </div>
+        </div>
+        <div class="stat-card glass-card hover-lift">
+            <div class="stat-top"><div class="stat-icon-wrapper orange-glow"><i class="fa-solid fa-indian-rupee-sign"></i></div></div>
+            <div class="stat-body">
+                <span class="stat-title">Net Financial Savings</span>
+                <div class="stat-value green-text" id="report-savings">₹0.00</div>
+            </div>
+        </div>
+        <div class="stat-card glass-card hover-lift">
+            <div class="stat-top"><div class="stat-icon-wrapper purple-glow"><i class="fa-solid fa-leaf"></i></div></div>
+            <div class="stat-body">
+                <span class="stat-title">Carbon Offset (CO₂)</span>
+                <div class="stat-value" id="report-co2">0.0 <span class="unit">kg</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Detailed Ledger Table -->
+    <div class="glass-card panel-card" style="padding: 1.75rem; margin-top: 0.5rem;">
+        <div class="panel-header" style="margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="font-size: 1.05rem;"><i class="fa-solid fa-table-list blue-text" style="margin-right: 8px;"></i> Microgrid Telemetry & Audit Logs</h3>
+            <span class="subtitle">Filtered by active node parameters</span>
+        </div>
+
+        <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.88rem;">
+                <thead>
+                    <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); color: var(--text-muted); font-size: 0.75rem; text-transform: uppercase;">
+                        <th style="padding: 10px 12px;">Cycle / Timestamp</th>
+                        <th style="padding: 10px 12px;">Voltage</th>
+                        <th style="padding: 10px 12px;">Solar Gen</th>
+                        <th style="padding: 10px 12px;">Active Load</th>
+                        <th style="padding: 10px 12px;">Net Flow</th>
+                        <th style="padding: 10px 12px;">Audit Status</th>
+                    </tr>
+                </thead>
+                <tbody id="report-table-body">
+                    <tr class="report-log-item" data-category="power" style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                        <td style="padding: 12px; color: var(--text-primary);">Current Cycle (Live)</td>
+                        <td style="padding: 12px;" id="rep-row-volt">-- V</td>
+                        <td style="padding: 12px; color: var(--accent-green);" id="rep-row-solar">-- kW</td>
+                        <td style="padding: 12px;" id="rep-row-load">-- kW</td>
+                        <td style="padding: 12px;" id="rep-row-net">-- kW</td>
+                        <td style="padding: 12px;"><span class="green-text" id="rep-row-status">Synchronizing...</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

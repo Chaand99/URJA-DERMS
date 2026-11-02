@@ -1,0 +1,88 @@
+<div class="dashboard-body settings-body" style="overflow: visible !important;">
+    <div class="welcome-section glass-card" style="padding: 1.5rem 2.5rem; overflow: visible !important;">
+        <div class="welcome-text" style="overflow: visible !important;">
+            <h1 style="font-size: 1.6rem; padding-bottom: 4px; letter-spacing: -0.3px;">Platform <span class="gradient-text">Settings & Preferences</span></h1>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Manage system configurations, theme behavior, and active node hardware metadata.</p>
+        </div>
+    </div>
+
+    <div class="glass-card active-node-inspect-card" style="padding: 1.5rem 2.5rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; border-left: 4px solid var(--accent-green);">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.3); display: flex; align-items: center; justify-content: center; color: var(--accent-green); font-size: 1.2rem;">
+                <i class="fa-solid fa-microchip"></i>
+            </div>
+            <div>
+                <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;">Active Connected Hardware Node</span>
+                <h3 style="font-size: 1.1rem; color: var(--text-primary); margin-top: 2px;" id="settingNodeName" class="active-node-name">Node #04-A (Main Substation Hub)</h3>
+            </div>
+        </div>
+        
+        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+            <div>
+                <span style="font-size: 0.7rem; color: var(--text-muted); display: block;">Firmware</span>
+                <strong style="font-size: 0.85rem; color: var(--text-secondary);" id="settingFirmware">v2.4.1-esp</strong>
+            </div>
+            <div>
+                <span style="font-size: 0.7rem; color: var(--text-muted); display: block;">IP Address</span>
+                <strong style="font-size: 0.85rem; color: var(--text-secondary);" id="settingIp">192.168.1.104</strong>
+            </div>
+            <div>
+                <span style="font-size: 0.7rem; color: var(--text-muted); display: block;">Status</span>
+                <span class="badge" style="background: rgba(16, 185, 129, 0.15); color: var(--accent-green); border: 1px solid rgba(16, 185, 129, 0.3); padding: 2px 8px; border-radius: 12px; font-size: 0.72rem; display: inline-flex; align-items: center;">
+                    <i class="fa-solid fa-circle" style="font-size: 5px; margin-right: 4px;"></i> Online
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 1.5rem; margin-top: 0.5rem;">
+        
+        <div class="glass-card panel-card" style="padding: 1.75rem;">
+            <div class="panel-header" style="margin-bottom: 1.25rem;">
+                <h3 style="font-size: 1.05rem;"><i class="fa-solid fa-palette blue-text" style="margin-right: 8px;"></i> Theme & Appearance</h3>
+                <span class="subtitle">Customize interface visual modes</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <strong style="font-size: 0.9rem; color: var(--text-primary); display: block;">SCADA High Contrast Mode</strong>
+                        <span style="font-size: 0.75rem; color: var(--text-muted);">Optimized high-visibility dark rendering</span>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="highContrastToggle">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <div class="glass-card panel-card" style="padding: 1.75rem;">
+            <div class="panel-header" style="margin-bottom: 1.25rem;">
+                <h3 style="font-size: 1.05rem;"><i class="fa-solid fa-sliders green-text" style="margin-right: 8px;"></i> General Preferences</h3>
+                <span class="subtitle">Telemetry polling frequency & sync parameters</span>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+                <div>
+                    <label style="font-size: 0.85rem; color: var(--text-secondary); display: block; margin-bottom: 0.4rem;">Telemetry Refresh Interval</label>
+                    <select id="refreshRateSelect" style="width: 100%; background: #0f141e !important; border: 1px solid var(--glass-border); padding: 0.6rem 1rem; border-radius: 8px; color: #f8fafc !important; outline: none; color-scheme: dark;">
+                        <option value="3000" style="background: #0f141e; color: #f8fafc;">3 Seconds (Real-time)</option>
+                        <option value="5000" style="background: #0f141e; color: #f8fafc;">5 Seconds</option>
+                        <option value="10000" style="background: #0f141e; color: #f8fafc;">10 Seconds</option>
+                        <option value="30000" style="background: #0f141e; color: #f8fafc;">30 Seconds</option>
+                        <option value="60000" style="background: #0f141e; color: #f8fafc;">1 Minute</option>
+                        <option value="120000" style="background: #0f141e; color: #f8fafc;">2 Minutes</option>
+                        <option value="180000" style="background: #0f141e; color: #f8fafc;">3 Minutes</option>
+                        <option value="300000" style="background: #0f141e; color: #f8fafc;">5 Minutes</option>
+                        <option value="600000" style="background: #0f141e; color: #f8fafc;">10 Minutes</option>
+                        <option value="1800000" style="background: #0f141e; color: #f8fafc;">30 Minutes</option>
+                    </select>
+                </div>
+                <div style="border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1rem;">
+                    <button id="saveSettingsBtn" style="background: var(--primary-blue); color: #fff; border: none; padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 600; cursor: pointer; transition: all 0.2s ease;">
+                        Save Preferences
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

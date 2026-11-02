@@ -1,0 +1,121 @@
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+
+<div class="dashboard-body cortex-page">
+    <!-- Short & Catchy Header -->
+    <div class="glass-card" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; padding: 1.25rem 2rem;">
+        <div class="welcome-text">
+            <h1 style="font-size: 1.5rem; font-weight: 800; color: var(--text-primary); margin: 0;">
+                Urja <span class="gradient-text">Cortex</span>
+            </h1>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin: 0;">Autonomous Neural Decision Core</p>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="badge active-node-name" style="background: rgba(168,85,247,0.12); color: #c084fc; border: 1px solid rgba(168,85,247,0.3); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;"><span class="node-label">Node #04-A</span></span>
+            <div class="live-pill" style="background: rgba(168,85,247,0.15); color: #c084fc; border: 1px solid rgba(168,85,247,0.3); font-size: 0.8rem; padding: 6px 12px;">
+                <span class="pulse-dot"></span> Neural Active
+            </div>
+        </div>
+    </div>
+
+    <!-- Overall Assessment Banner with Live 5-Min Telemetry Synthesis -->
+    <div class="glass-card" style="display: flex; flex-direction: column; gap: 0.5rem; background: linear-gradient(135deg, rgba(37,99,235,0.08), rgba(16,185,129,0.05));">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h3 style="margin: 0; color: var(--text-primary); font-size: 1rem;"><i class="fa-solid fa-wand-magic-sparkles purple-text"></i> Overall Assessment</h3>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">5-Min Sliding Window</span>
+        </div>
+        <p id="cortex-summary-text" style="margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.4;">
+            Synchronizing live microgrid vectors...
+        </p>
+    </div>
+
+    <!-- 4 Interactive Highlight Cards (Click to Expand / Collapse) -->
+    <div class="cortex-cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+
+        <!-- Card 1: Solar Intelligence -->
+        <div class="cortex-card glass-card hover-lift expandable-card" data-card="solar" style="cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper green-glow"><i class="fa-solid fa-solar-panel"></i></div>
+                <span class="trend positive">Optimal</span>
+            </div>
+            <div class="stat-body" style="margin-top: 0.75rem;">
+                <span class="stat-title">Solar Yield</span>
+                <div class="stat-value" id="cortex-solar-val" style="font-size: 1.4rem;">-- kW</div>
+            </div>
+            <p class="card-preview-text" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Real-time PV generation output.</p>
+
+            <div class="expandable-content" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0;">
+                <div style="padding-top: 0.75rem; font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.35rem;">
+                    <div><strong>MPPT Efficiency:</strong> 99.1%</div>
+                    <div><strong>Panel Temp:</strong> 34.2°C</div>
+                    <div style="color: var(--accent-green);">Status: Routing surplus to BESS.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: Battery Intelligence -->
+        <div class="cortex-card glass-card hover-lift expandable-card" data-card="battery" style="cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper blue-glow"><i class="fa-solid fa-battery-three-quarters"></i></div>
+                <span class="trend positive">Healthy</span>
+            </div>
+            <div class="stat-body" style="margin-top: 0.75rem;">
+                <span class="stat-title">Battery Storage</span>
+                <div class="stat-value" id="cortex-batt-val" style="font-size: 1.4rem;">-- %</div>
+            </div>
+            <p class="card-preview-text" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">BESS state of charge & health.</p>
+
+            <div class="expandable-content" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0;">
+                <div style="padding-top: 0.75rem; font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.35rem;">
+                    <div><strong>State of Health:</strong> 98.5%</div>
+                    <div><strong>Cell Temp:</strong> 23.0°C</div>
+                    <div style="color: var(--primary-blue);">Status: Peak shaving active.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Grid Intelligence -->
+        <div class="cortex-card glass-card hover-lift expandable-card" data-card="grid" style="cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper orange-glow"><i class="fa-solid fa-tower-broadcast"></i></div>
+                <span class="trend positive">Stable</span>
+            </div>
+            <div class="stat-body" style="margin-top: 0.75rem;">
+                <span class="stat-title">Grid Voltage</span>
+                <div class="stat-value" id="cortex-grid-val" style="font-size: 1.4rem;">-- V</div>
+            </div>
+            <p class="card-preview-text" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Utility line stability check.</p>
+
+            <div class="expandable-content" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0;">
+                <div style="padding-top: 0.75rem; font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.35rem;">
+                    <div><strong>Frequency:</strong> 50.01 Hz</div>
+                    <div><strong>Power Factor:</strong> 0.99</div>
+                    <div style="color: var(--accent-orange);">Status: Zero penalties incurred.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 4: Load Intelligence -->
+        <div class="cortex-card glass-card hover-lift expandable-card" data-card="load" style="cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
+            <div class="stat-top">
+                <div class="stat-icon-wrapper purple-glow"><i class="fa-solid fa-bolt-lightning"></i></div>
+                <span class="trend positive">Balanced</span>
+            </div>
+            <div class="stat-body" style="margin-top: 0.75rem;">
+                <span class="stat-title">Building Load</span>
+                <div class="stat-value" id="cortex-load-val" style="font-size: 1.4rem;">-- kW</div>
+            </div>
+            <p class="card-preview-text" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem;">Active consumption demand.</p>
+
+            <div class="expandable-content" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0;">
+                <div style="padding-top: 0.75rem; font-size: 0.8rem; color: var(--text-secondary); display: flex; flex-direction: column; gap: 0.35rem;">
+                    <div><strong>Demand Profile:</strong> Stable</div>
+                    <div><strong>Optimization:</strong> Active</div>
+                    <div style="color: #c084fc;">Status: Loads matched with solar.</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

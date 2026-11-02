@@ -1,0 +1,1280 @@
+/* ===========================================================
+   CORTEX PAGE
+=========================================================== */
+
+.cortex-page{
+
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+
+    animation:fadeIn .4s ease;
+
+}
+
+
+/* ===========================================================
+   HERO
+=========================================================== */
+
+.cortex-hero{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:32px;
+
+    padding:30px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.cortex-hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-150px;
+    right:-120px;
+
+    width:320px;
+    height:320px;
+
+    border-radius:50%;
+
+    background:rgba(147,112,219,.08);
+
+    filter:blur(70px);
+
+}
+
+
+
+/* ===========================================================
+   LEFT
+=========================================================== */
+
+.hero-left{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+}
+
+
+.hero-heading{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:center;
+
+}
+
+
+.hero-icon{
+
+    width:72px;
+    height:72px;
+
+    border-radius:18px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+
+    background:rgba(147,112,219,.12);
+
+    color:#b88cff;
+
+    box-shadow:
+    0 0 25px rgba(147,112,219,.18);
+
+}
+
+
+.hero-chip{
+
+    display:inline-flex;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    background:rgba(147,112,219,.12);
+
+    color:#caa7ff;
+
+    font-size:12px;
+
+    letter-spacing:.8px;
+
+    margin-bottom:10px;
+
+}
+
+
+.hero-heading h1{
+
+    margin:0;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+
+.hero-heading p{
+
+    margin-top:8px;
+
+    color:#9aa4b2;
+
+    line-height:1.6;
+
+}
+
+
+
+/* ===========================================================
+SUMMARY
+=========================================================== */
+
+.hero-summary{
+
+    margin-top:28px;
+
+}
+
+.hero-summary h3{
+
+    margin-bottom:14px;
+
+    font-size:20px;
+
+}
+
+.hero-summary p{
+
+    line-height:1.8;
+
+    color:#a6b0bf;
+
+}
+
+
+
+/* ===========================================================
+TAGS
+=========================================================== */
+
+.hero-tags{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:22px;
+
+    flex-wrap:wrap;
+
+}
+
+
+.hero-tag{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 14px;
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.05);
+
+    font-size:13px;
+
+}
+
+
+.hero-tag.online{
+
+    background:rgba(34,197,94,.15);
+
+    color:#53d66d;
+
+}
+
+
+
+/* ===========================================================
+RIGHT PANEL
+=========================================================== */
+
+.hero-right{
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-left:1px solid rgba(255,255,255,.06);
+
+    padding-left:30px;
+
+}
+
+
+
+.last-analysis{
+
+    align-self:flex-end;
+
+    margin-bottom:18px;
+
+    font-size:12px;
+
+    color:#8c98aa;
+
+}
+
+
+.last-analysis strong{
+
+    display:block;
+
+    margin-top:5px;
+
+    color:white;
+
+}
+
+
+
+/* ===========================================================
+HEALTH
+=========================================================== */
+
+.health-circle{
+
+    text-align:center;
+
+}
+
+
+.health-title{
+
+    color:#a0a8b5;
+
+    letter-spacing:1px;
+
+    font-size:13px;
+
+}
+
+
+.health-value{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-start;
+
+    margin-top:10px;
+
+}
+
+
+.health-value h2,
+.health-value span:first-child{
+
+    font-size:72px;
+
+    line-height:1;
+
+    color:#b88cff;
+
+    font-weight:700;
+
+}
+
+
+.percent{
+
+    margin-top:12px;
+
+    font-size:24px;
+
+    color:#b88cff;
+
+}
+
+
+.health-status{
+
+    display:inline-block;
+
+    margin-top:14px;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:rgba(34,197,94,.15);
+
+    color:#53d66d;
+
+    font-size:14px;
+
+}
+
+
+
+/* ===========================================================
+METRICS
+=========================================================== */
+
+.hero-metrics{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:16px;
+
+    margin-top:28px;
+
+    width:100%;
+
+}
+
+
+.glass-inner{
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.05);
+
+}
+
+
+.metric-card{
+
+    text-align:center;
+
+    padding:16px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.03);
+
+    transition:.25s;
+
+}
+
+
+.metric-card:hover{
+
+    transform:translateY(-4px);
+
+    background:rgba(147,112,219,.08);
+
+}
+
+
+.metric-card h4{
+
+    margin:0;
+
+    font-size:24px;
+
+    color:white;
+
+}
+
+
+.metric-card span{
+
+    display:block;
+
+    margin-top:8px;
+
+    font-size:13px;
+
+    color:#9ba4b2;
+
+}
+/* ===========================================================
+   INTELLIGENCE GRID
+=========================================================== */
+
+.intelligence-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:22px;
+
+}
+
+
+.intel-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    transition:.35s ease;
+
+    cursor:pointer;
+
+}
+
+
+.intel-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    transition:.35s;
+
+    background:
+    radial-gradient(circle at top right,
+    rgba(147,112,219,.18),
+    transparent 70%);
+
+}
+
+
+.intel-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(147,112,219,.25);
+
+    box-shadow:
+
+    0 18px 40px rgba(0,0,0,.28),
+
+    0 0 35px rgba(147,112,219,.12);
+
+}
+
+
+.intel-card:hover::before{
+
+    opacity:1;
+
+}
+
+
+
+/* ========================================= */
+
+.intel-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+}
+
+
+.intel-icon{
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+    background:rgba(147,112,219,.12);
+
+    color:#be9dff;
+
+}
+
+
+.intel-top span{
+
+    display:block;
+
+    color:#9ca8b8;
+
+    font-size:13px;
+
+}
+
+
+.intel-top h2{
+
+    margin-top:6px;
+
+    font-size:30px;
+
+}
+
+
+
+/* ========================================= */
+
+.intel-footer{
+
+    margin-top:28px;
+
+}
+
+
+.intel-footer small{
+
+    display:block;
+
+    margin-top:12px;
+
+    color:#9aa6b5;
+
+    line-height:1.6;
+
+}
+
+
+
+/* ===========================================
+BADGES
+=========================================== */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    letter-spacing:.4px;
+
+}
+
+
+.badge.success{
+
+    background:rgba(34,197,94,.14);
+
+    color:#5dde81;
+
+}
+
+
+.badge.warning{
+
+    background:rgba(245,158,11,.15);
+
+    color:#f6b84e;
+
+}
+
+
+.badge.danger{
+
+    background:rgba(239,68,68,.15);
+
+    color:#ff7777;
+
+}
+
+
+
+/* ===========================================
+SPECIAL COST CARD
+=========================================== */
+
+.intel-card-wide{
+
+    grid-column:span 2;
+
+}
+
+
+.cost-card .intel-icon{
+
+    background:rgba(52,211,153,.12);
+
+    color:#42e0a4;
+
+}
+
+
+.cost-card:hover{
+
+    box-shadow:
+
+    0 20px 45px rgba(0,0,0,.30),
+
+    0 0 45px rgba(52,211,153,.14);
+
+}
+
+
+
+/* ===========================================================
+   CONTENT GRID
+=========================================================== */
+
+.content-grid{
+
+    display:grid;
+
+    grid-template-columns:1.8fr .9fr;
+
+    gap:22px;
+
+}
+
+
+
+/* ===========================================================
+RECOMMENDATIONS
+=========================================================== */
+
+.recommendation-panel{
+
+    padding:24px;
+
+}
+
+
+.panel-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:22px;
+
+}
+
+
+.panel-header h3{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin:0;
+
+}
+
+
+.panel-header i{
+
+    color:#b88cff;
+
+}
+
+
+
+/* ========================================= */
+
+.recommendation-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+
+}
+
+
+.recommendation{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:flex-start;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.03);
+
+    transition:.25s;
+
+}
+
+
+.recommendation:hover{
+
+    transform:translateX(6px);
+
+    background:rgba(255,255,255,.05);
+
+}
+
+
+
+/* ========================================= */
+
+.priority-dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    margin-top:6px;
+
+    flex-shrink:0;
+
+}
+
+
+.priority-dot.red{
+
+    background:#ef4444;
+
+    box-shadow:0 0 10px #ef4444;
+
+}
+
+
+.priority-dot.yellow{
+
+    background:#f59e0b;
+
+    box-shadow:0 0 10px #f59e0b;
+
+}
+
+
+.priority-dot.green{
+
+    background:#22c55e;
+
+    box-shadow:0 0 10px #22c55e;
+
+}
+
+
+
+/* ========================================= */
+
+.recommendation h4{
+
+    margin:0;
+
+    font-size:17px;
+
+}
+
+
+.recommendation p{
+
+    margin-top:8px;
+
+    color:#a0acbb;
+
+    line-height:1.6;
+
+}
+/* ===========================================================
+TIMELINE PANEL
+=========================================================== */
+
+.timeline-panel{
+
+    padding:24px;
+
+    height:100%;
+
+}
+
+
+#decisionTimeline{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+
+/* ========================================= */
+
+.timeline-item{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:18px;
+
+    padding:18px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.03);
+
+    transition:.25s;
+
+    position:relative;
+
+}
+
+
+.timeline-item:hover{
+
+    transform:translateX(6px);
+
+    background:rgba(255,255,255,.05);
+
+}
+
+
+.timeline-dot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#b88cff;
+
+    box-shadow:0 0 14px rgba(184,140,255,.8);
+
+    margin-top:6px;
+
+    flex-shrink:0;
+
+}
+
+
+.timeline-content{
+
+    flex:1;
+
+}
+
+
+.timeline-content span{
+
+    display:block;
+
+    font-size:13px;
+
+    color:#8e9aaa;
+
+    margin-bottom:6px;
+
+}
+
+
+.timeline-content p{
+
+    margin:0;
+
+    color:#d5dbe3;
+
+    line-height:1.6;
+
+}
+
+
+
+/* ===========================================================
+GLASS CARD IMPROVEMENT
+=========================================================== */
+
+.glass-card{
+
+    background:rgba(18,22,32,.75);
+
+    backdrop-filter:blur(18px);
+
+    -webkit-backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.06);
+
+    border-radius:20px;
+
+    box-shadow:
+
+        0 8px 30px rgba(0,0,0,.25);
+
+}
+
+
+/* ===========================================================
+SCROLLBAR
+=========================================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:rgba(147,112,219,.25);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:rgba(147,112,219,.45);
+
+}
+
+
+
+/* ===========================================================
+FADE ANIMATION
+=========================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(18px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+@keyframes pulseGlow{
+
+    0%{
+
+        box-shadow:0 0 0 rgba(184,140,255,0);
+
+    }
+
+    50%{
+
+        box-shadow:0 0 25px rgba(184,140,255,.25);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 rgba(184,140,255,0);
+
+    }
+
+}
+
+
+.health-circle{
+
+    animation:pulseGlow 3s infinite;
+
+}
+
+
+
+/* ===========================================================
+SMOOTH TRANSITIONS
+=========================================================== */
+
+*{
+
+    transition:
+
+    background .25s,
+
+    border-color .25s,
+
+    color .25s,
+
+    transform .25s,
+
+    box-shadow .25s;
+
+}
+
+
+
+/* ===========================================================
+RESPONSIVE
+=========================================================== */
+
+@media (max-width:1400px){
+
+    .intelligence-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .intel-card-wide{
+
+        grid-column:span 2;
+
+    }
+
+}
+
+
+@media (max-width:1100px){
+
+    .cortex-hero{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .hero-right{
+
+        border-left:none;
+
+        border-top:1px solid rgba(255,255,255,.06);
+
+        padding-top:28px;
+
+        padding-left:0;
+
+    }
+
+    .content-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+
+@media (max-width:900px){
+
+    .intelligence-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .intel-card-wide{
+
+        grid-column:span 1;
+
+    }
+
+    .hero-metrics{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+@media (max-width:600px){
+
+    .cortex-page{
+
+        gap:18px;
+
+    }
+
+    .cortex-hero{
+
+        padding:22px;
+
+    }
+
+    .hero-heading{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .hero-heading h1{
+
+        font-size:28px;
+
+    }
+
+    .health-value h2{
+
+        font-size:58px;
+
+    }
+
+    .hero-metrics{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .recommendation{
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+    .timeline-item{
+
+        flex-direction:column;
+
+        gap:10px;
+
+    }
+
+}
+
+
+
+/* ===========================================================
+LIVE STATUS COLORS
+=========================================================== */
+
+.online{
+
+    color:#22c55e;
+
+}
+
+.warning{
+
+    color:#f59e0b;
+
+}
+
+.offline{
+
+    color:#ef4444;
+
+}
+
+
+
+/* ===========================================================
+HOVER GLOW
+=========================================================== */
+
+.intel-card:hover .intel-icon{
+
+    transform:rotate(-8deg) scale(1.08);
+
+}
+
+
+.metric-card:hover h4{
+
+    color:#d6bcff;
+
+}
+
+
+.hero-icon:hover{
+
+    transform:rotate(-10deg) scale(1.08);
+
+}
+
+
+/* Cortex Expandable Card Animations */
+.expandable-card {
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expandable-card:hover {
+    border-color: rgba(37, 99, 235, 0.4);
+    box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.6);
+}
+
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
+}
+/* ===========================================================
+END
+=========================================================== */

@@ -1,0 +1,262 @@
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+
+
+<!-- 1. EXECUTIVE COMMAND CENTER HERO -->
+<section class="executive-hero glass-card">
+    <div class="panel-header hero-top-row">
+        <div class="hero-titles">
+            <h1 class="hero-title">Urja <span class="gradient-text">DERMS</span></h1>
+            <p class="hero-subtitle">Distributed Energy Resource Management System</p>
+        </div>
+        <div class="hero-operational-badge">
+            <span class="op-label">Campus Microgrid</span>
+            <span class="op-node active-node-name">Node #04-A</span>
+            <span class="op-status"><span class="pulse-dot"></span> Live</span>
+        </div>
+
+    </div>
+
+    <div class="executive-kpi-grid">
+        <div class="kpi-mini">
+            <span class="kpi-label">System</span>
+            <span class="kpi-val green-text"><span class="pulse-dot inline-dot"></span> ONLINE</span>
+        </div>
+        <div class="kpi-mini">
+            <span class="kpi-label">Solar</span>
+            <span class="kpi-val animate-number" id="kpi-solar">8.2 kW</span>
+        </div>
+        <div class="kpi-mini">
+            <span class="kpi-label">Battery</span>
+            <span class="kpi-val animate-number" id="kpi-battery">88%</span>
+        </div>
+        <div class="kpi-mini">
+            <span class="kpi-label">Load</span>
+            <span class="kpi-val animate-number" id="kpi-load">6.8 kW</span>
+        </div>
+        <div class="kpi-mini">
+            <span class="kpi-label">Grid</span>
+            <span class="kpi-val blue-text">Connected</span>
+        </div>
+        <div class="kpi-mini">
+            <span class="kpi-label">Power Balance</span>
+            <span class="kpi-val orange-text" id="kpi-balance">+0.00 kW Export</span>
+        </div>
+        <div class="kpi-mini">
+            <span class="kpi-label">Savings</span>
+            <span class="kpi-val green-text animate-number" id="kpi-savings">₹0.00</span>
+        </div>
+    </div>
+</section>
+
+<!-- 2. CONNECTED LIVE ENERGY FLOW -->
+<section class="live-energy-flow glass-card connected-flow">
+    <div class="flow-node node-solar">
+        <div class="icon-circle"><i class="fa-solid fa-sun"></i></div>
+        <div class="node-info">
+            <span class="title">Solar</span>
+            <span class="metric" id="flow-solar">8.2 kW</span>
+        </div>
+    </div>
+    
+    <div class="power-line line-green"><div class="electricity-dot"></div></div>
+
+    <div class="flow-node node-battery">
+        <div class="icon-circle"><i class="fa-solid fa-battery-three-quarters"></i></div>
+        <div class="node-info">
+            <span class="title">Battery</span>
+            <span class="metric charging" id="flow-battery">+1.4 kW</span>
+        </div>
+    </div>
+    
+    <div class="power-line line-blue"><div class="electricity-dot"></div></div>
+
+    <div class="flow-node node-load">
+        <div class="icon-circle"><i class="fa-solid fa-house-chimney"></i></div>
+        <div class="node-info">
+            <span class="title">House</span>
+            <span class="metric load" id="flow-load">6.8 kW</span>
+        </div>
+    </div>
+    
+    <div class="power-line line-yellow"><div class="electricity-dot"></div></div>
+
+    <div class="flow-node node-grid">
+        <div class="icon-circle"><i class="fa-solid fa-tower-transmission"></i></div>
+        <div class="node-info">
+            <span class="title">Grid</span>
+            <span class="metric exporting" id="flow-grid">1.4 kW</span>
+        </div>
+    </div>
+</section>
+
+<!-- 3. STATISTIC CARDS -->
+<section class="stats-grid">
+    <div class="stat-card glass-card hover-lift">
+        <div class="stat-top">
+            <div class="stat-icon-wrapper blue-glow"><i class="fa-solid fa-wave-square"></i></div>
+            <span class="trend neutral"><i class="fa-solid fa-minus"></i> 0.0%</span>
+        </div>
+        <div class="stat-body">
+            <span class="stat-title">Voltage</span>
+            <div class="stat-value animate-number" id="val-voltage">230.4 <span class="unit">V</span></div>
+        </div>
+    </div>
+
+    <div class="stat-card glass-card hover-lift">
+        <div class="stat-top">
+            <div class="stat-icon-wrapper blue-glow"><i class="fa-solid fa-plug"></i></div>
+            <span class="trend positive"><i class="fa-solid fa-arrow-down"></i> 4.2%</span>
+        </div>
+        <div class="stat-body">
+            <span class="stat-title">Current</span>
+            <div class="stat-value animate-number" id="val-current">42.15 <span class="unit">A</span></div>
+        </div>
+    </div>
+
+    <div class="stat-card glass-card hover-lift">
+        <div class="stat-top">
+            <div class="stat-icon-wrapper blue-glow"><i class="fa-solid fa-bolt"></i></div>
+            <span class="trend negative"><i class="fa-solid fa-arrow-up"></i> 1.8%</span>
+        </div>
+        <div class="stat-body">
+            <span class="stat-title">Power</span>
+            <div class="stat-value animate-number" id="val-power">9.71 <span class="unit">kW</span></div>
+        </div>
+    </div>
+
+    <div class="stat-card glass-card hover-lift">
+        <div class="stat-top">
+            <div class="stat-icon-wrapper blue-glow"><i class="fa-solid fa-chart-column"></i></div>
+            <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 12.4%</span>
+        </div>
+        <div class="stat-body">
+            <span class="stat-title">Energy</span>
+            <div class="stat-value animate-number" id="val-energy">114.8 <span class="unit">kWh</span></div>
+        </div>
+    </div>
+
+    <div class="stat-card glass-card hover-lift">
+        <div class="stat-top">
+            <div class="stat-icon-wrapper green-glow"><i class="fa-solid fa-sun"></i></div>
+            <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 8.5%</span>
+        </div>
+        <div class="stat-body">
+            <span class="stat-title">Solar</span>
+            <div class="stat-value animate-number" id="val-solar">8.20 <span class="unit">kW</span></div>
+        </div>
+    </div>
+
+    <div class="stat-card glass-card hover-lift">
+        <div class="stat-top">
+            <div class="stat-icon-wrapper green-glow"><i class="fa-solid fa-battery-three-quarters"></i></div>
+            <span class="trend positive"><i class="fa-solid fa-arrow-up"></i> 2.1%</span>
+        </div>
+        <div class="stat-body">
+            <span class="stat-title">Battery</span>
+            <div class="stat-value animate-number" id="val-battery">88 <span class="unit">%</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. ASYMMETRIC CHARTS SECTION (70 / 30 Split) -->
+<section class="charts-section asymmetric-charts">
+    <div class="chart-card glass-card primary-chart-box hover-lift">
+        <div class="panel-header">
+            <h3>Live Power Flow</h3>
+            <span class="live-pill"><span class="pulse-dot"></span> LIVE</span>
+        </div>
+        <div class="chart-wrapper">
+            <canvas id="livePowerChart"></canvas>
+        </div>
+    </div>
+
+    <div class="chart-card glass-card secondary-chart-box hover-lift">
+        <div class="panel-header">
+            <h3>24-Hour Solar</h3>
+        </div>
+        <div class="chart-wrapper">
+            <canvas id="solarChart"></canvas>
+        </div>
+    </div>
+</section>
+
+    <!-- 5. PANELS SECTION (AI, Alerts, Events) -->
+<section class="panels-section">
+    
+    <!-- Dynamic AI Panel -->
+    <div class="panel-card glass-card enterprise-ai-panel hover-lift">
+        <div class="panel-header">
+            <div class="ai-title-wrapper">
+                <div class="ai-logo-container"><i class="fa-solid fa-wand-magic-sparkles ai-gradient-icon"></i></div>
+                <h3>Urja DERMS AI Insights</h3>
+            </div>
+        </div>
+        <!-- 👇 Container id added for dynamic real-time insertion -->
+        <ul id="aiSuggestionList" class="ai-suggestion-list">
+            <li>
+                <div class="sugg-icon blue-glow"><i class="fa-solid fa-spinner fa-spin"></i></div>
+                <div class="sugg-content"><strong>Loading live AI telemetry insights...</strong></div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- System Alerts Panel (Pulsing Badge) -->
+    <div class="panel-card glass-card system-alerts-panel hover-lift">
+        <div class="panel-header">
+            <h3><i class="fa-solid fa-shield-halved"></i> System Alerts</h3>
+            <span id="alertCountBadge" class="badge alert-critical critical-pulse">0 Active</span>
+        </div>
+        <!-- 👇 Container id added for dynamic real-time alerts & cortex sync -->
+        <div id="systemAlertsList" class="alerts-list">
+            <div class="alert-item alert-info">
+                <div class="alert-icon"><i class="fa-solid fa-circle-info"></i></div>
+                <div class="alert-content">
+                    <div class="alert-meta"><span class="alert-type">STATUS</span><span class="alert-time">Live</span></div>
+                    <p>Syncing active microgrid fault logs...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Recent Events -->
+    <div class="panel-card glass-card event-timeline-panel hover-lift" style="margin-top: 1.5rem;" style="margin-bottom: 1.5 rem;">
+        <div class="panel-header">
+            <h3><i class="fa-solid fa-timeline"></i> Recent Events</h3>
+        </div>
+        <div class="timeline-stream">
+            <div class="timeline-item">
+                <div class="timeline-marker green-bg"><i class="fa-solid fa-sun"></i></div>
+                <div class="timeline-content">
+                    <div class="timeline-meta"><span class="t-category">Solar PV</span><span class="t-time">11:42</span></div>
+                    <p class="t-text">Solar generation increased.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker blue-bg"><i class="fa-solid fa-bolt"></i></div>
+                <div class="timeline-content">
+                    <div class="timeline-meta"><span class="t-category">BESS Control</span><span class="t-time">11:37</span></div>
+                    <p class="t-text">Battery charging started.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker purple-bg"><i class="fa-solid fa-tower-broadcast"></i></div>
+                <div class="timeline-content">
+                    <div class="timeline-meta"><span class="t-category">Grid Sync</span><span class="t-time">11:21</span></div>
+                    <p class="t-text">Grid import reduced.</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-marker green-bg"><i class="fa-solid fa-leaf"></i></div>
+                <div class="timeline-content">
+                    <div class="timeline-meta"><span class="t-category">Efficiency</span><span class="t-time">11:05</span></div>
+                    <p class="t-text">High renewable utilization.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+<section class="panels-section" style="margin-bottom: 1rem; padding-bottom: 1rem;">
+    </section>
+</section>
